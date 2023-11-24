@@ -8,7 +8,7 @@ const Usuarios = () => {
 
   const [ personas, setPersonas] = useState([]);
 
-  const URL = 'http://localhost:9000/users'
+  const URL = 'https://backdeploy-production.up.railway.app/users'
 
   const getPersona = async () =>{
 
