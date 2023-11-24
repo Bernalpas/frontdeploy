@@ -1,5 +1,5 @@
 import Table from 'react-bootstrap/Table';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
@@ -13,9 +13,14 @@ const Usuarios = () => {
   const getPersona = async () =>{
 
     const { data } = await axios.get(URL);
-    console.log(data);
+    setPersonas(data.personas);
+    console.log(personas);
 
   }
+
+  useEffect(() => {
+    getPersona()
+  }, [])
 
 
   return (
@@ -26,19 +31,22 @@ const Usuarios = () => {
       <Table striped="columns" className='container'>
         <thead>
           <tr>
-            <th>#</th>
+            <th>#</th> 
             <th>Nombre</th>
             <th>Apellido</th>
             <th>DNI</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
+          {personas.map(persona =>
+            <tr key={persona._id}>
+              <td>{persona._id}</td>
+              <td>{persona.nombre}</td>
+              <td>{persona.apellido}</td>
+              <td>{persona.dni}</td>
+            </tr>
+          )}
+
         </tbody>
         <button onClick={getPersona}>Dame Personas</button>
       </Table>
