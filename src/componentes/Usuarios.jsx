@@ -1,7 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Button from 'react-bootstrap/Button';
 
 
 const Usuarios = () => {
@@ -16,6 +16,10 @@ const Usuarios = () => {
     setPersonas(data.personas);
     console.log(personas);
 
+  }
+
+  const deleteUser = (id) =>{
+    alert(`Eliminará un usuario del registro ${id}`) 
   }
 
   useEffect(() => {
@@ -44,9 +48,11 @@ const Usuarios = () => {
               <td>{persona.nombre}</td>
               <td>{persona.apellido}</td>
               <td>{persona.dni}</td>
+              <td><Button onClick={()=>deleteUser(persona._id)} variant="danger">Delete</Button></td>
+              <td><Button variant="warning">Update</Button></td>
+              <td></td>
             </tr>
           )}
-
         </tbody>
         <button onClick={getPersona}>Dame Personas</button>
       </Table>
