@@ -14,6 +14,7 @@ function Navegacion() {
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/formulario">Formulario</Nav.Link>
                         <Nav.Link href="/usuarios">Usuarios</Nav.Link>
+                        <Nav.Link href="/buscar">Buscar por Nombre</Nav.Link>
                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">
